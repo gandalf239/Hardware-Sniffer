@@ -58,7 +58,7 @@ Thank you for your support! Every little bit helps! 😊
 ## ❓ **Q&A**
 
 - **Support for macOS and Linux?**
-  - **macOS**: ❌ No. Due to potential inaccuracies caused by Hackintosh modifications, we cannot guarantee accurate information.
+  - **macOS**: ❓.Hardware-Sniffer and its anciliary scripts have been modified to support macOS. That said OpCore-Simplify cannot yet read the results. <--This is a work in progress.
   - **Linux**: 🤔 Currently not supported, but this could change with future updates.
 
 ---
