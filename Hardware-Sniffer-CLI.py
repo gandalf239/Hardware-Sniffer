@@ -111,11 +111,19 @@ class HardwareSniffer:
 
         report_data = {}
 
+        import platform
+
         if os_name == "Windows":
             from Scripts.platforms.windows import WindowsHardwareInfo
-            hardware_info = WindowsHardwareInfo()       
+            hardware_info = WindowsHardwareInfo()
+        
+        elif os_name == "Darwin":  # macOS is identified as 'Darwin'
+            from Scripts.platforms.macos import MacOSHardwareInfo
+            hardware_info = MacOSHardwareInfo()
+        
         else:
             raise NotImplementedError(f"Unsupported operating system: {os_name}")
+
         
         steps = [
             ('Gathering PnP devices', hardware_info.pnp_devices, None),
@@ -126,7 +134,7 @@ class HardwareSniffer:
             ('Gathering network information', hardware_info.network, "Network"),
             ('Gathering sound information', hardware_info.sound, "Sound"),
             ('Gathering USB controllers', hardware_info.usb_controllers, "USB Controllers"),
-            ('Gathering input devices', hardware_info.input, "Input"),
+            ('Gathering Input_Devices', hardware_info.input_devices, None),
             ('Gathering storage controllers', hardware_info.storage_controllers, "Storage Controllers"),
             ('Gathering biometric information', hardware_info.biometric, "Biometric"),
             ('Gathering bluetooth information', hardware_info.bluetooth, "Bluetooth"),
